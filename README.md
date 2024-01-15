@@ -24,7 +24,7 @@
   cd <project-name>
   ```
 
-* Initialize a repository
+* **Initialize a Repository**
   
   ```
   # Initialize git
@@ -134,10 +134,12 @@
   # Apply stash
   git stash list  # view all available stashes
   git stash apply 0  # apply a saved stash
+  #If you have multiple stashes and you want to apply a specific one, you can do it like this (replace {n} with your stash number):
+  git stash apply stash@{n}
   # Drop stash
   git stash drop 0  # remove the applied stash (optional)
   ```
-
+  
 * **Status**
   
   ```
@@ -179,25 +181,41 @@
   git restore --stage <PATH_TO_FILE>  # will remove from stage (won't undo changes)
   ```
 
-* **Reset**
-  
-  ```
-  # Reset
-  git reset <PREVIOUS_COMMIT_ID>  # or HEAD^
-  ```
-
 * **Revert**
   
   ```
   # Revert
   git revert <COMMIT_ID> ...  # rollback specific commits
   git revert <COMMIT_TO_ROLLBACK_TO>..<COMMIT_TO_ROLLBACK_FROM>  # range
+  # Let's say the hash of the commit is 'abc123'. You can revert it by running:
+  git revert abc123
+  #This will create a new commit that undoes the changes made in commit abc123. It's important to note that this doesn't 3 # delete any history. It simply applies the inverse of the given commit.
   ```
 
-* **Checkout**
-  
+* **Soft Reset**
+
   ```
-  
+  # If you want to remove the commit from the history altogether, you can use the git reset command. To remove commit abc123 and all commits prior to it, but keep the changes in your working directory, you can do:
+  git reset --soft abc123^
   ```
-  
+
+* **Reset**
+
+  ```
+  # Reset
+  git reset <PREVIOUS_COMMIT_ID>  # or HEAD^
+  # If you want to discard the changes as well, use:
+  git reset --hard abc123^
+  Note: Be careful with git reset --hard. It permanently discards changes, so you won't be able to recover them.
+  ```
+
+* **Unstage Changes**
+
+  ```
+  # To unstage changes in Git, you can simply use the git reset command.
+  git reset
+  # If you want to unstage a specific file you can use:If you want to unstage a specific file you can use:
+  git reset <file>
+  ```
+
   
