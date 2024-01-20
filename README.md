@@ -218,4 +218,31 @@
   git reset <file>
   ```
 
+
+* Config for git pull
+
+  * `git config pull.rebase false`: This tells Git to create a new merge commit whenever you pull in changes.
+  * `git config pull.rebase true`: This tells Git to rebase, which means to apply your changes on top of the changes you are pulling.
+  * `git config pull.ff only`: This stands for "fast-forward only". It tells Git to only allow pulls that can be fast-forwarded.
+
+  ```
+  These are Git commands that configure how Git behaves when you perform a git pull. The git pull command is essentially the combination of git fetch followed by git merge or git rebase. The key difference between git merge and git rebase is how they integrate the commits from one branch into another.
+  
+  git config pull.rebase false: This is the default behavior of Git. When you execute git pull, Git will perform a git fetch to pull down all the new commits from the remote repository and then execute a git merge to merge those commits into your current branch. This process creates a new merge commit in your branch history.
+  
+  git config pull.rebase true : If you set this option, when you perform a git pull, Git will still do a git fetch to get the new commits, but instead of merging them, it uses git rebase. What this means is that Git will try to apply your changes as if you made them on top of the changes from the remote repository. There will be no merge commits and the commit history will be linear, as if you just checked out the latest version and then made your changes.
+  
+  To summarize, git config pull.rebase false will merge the commits (keeping trace of the fact that there were two separate branches that were later integrated), while git config pull.rebase true will rebase them (making it seem like all the work was done in a single, linear branch). The choice between them depends on whether you want to maintain a record of branch merges in your commit history.
+  
+  git config pull.ff only is a configuration setting for Git that alters how git pull behaves. The "ff" stands for "fast-forward."
+  
+  When you run git pull, Git fetches commits from the branch in the remote repository that corresponds to the branch you're currently on in your local repository. Then it needs to integrate those new commits into your current branch.
+  
+  When pull.ff is set to only, Git will only update (or "fast-forward") your branch if the new commits form a linear progression from the commits you have. This is traditionally the case if you haven't made any new commits on your branch since the last pull. Git can just move your branch pointer to point at the newest commit.
+  
+  If you have made new commits and pull.ff is set to only, Git will refuse to modify your branch, because doing so would require either a merge commit (if git pull behaved as git merge) or a rebase (if git pull behaved as git rebase).
+  
+  So, when you set git config pull.ff only, you're telling Git to only integrate new commits from git pull if the task can be performed as a straightforward, linear fast-forward. If a merge or rebase would be required, Git will give you a message to that effect and stop. You can then decide how you want to handle the situation.
+  ```
+
   
