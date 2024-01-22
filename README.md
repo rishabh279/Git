@@ -245,4 +245,14 @@
   So, when you set git config pull.ff only, you're telling Git to only integrate new commits from git pull if the task can be performed as a straightforward, linear fast-forward. If a merge or rebase would be required, Git will give you a message to that effect and stop. You can then decide how you want to handle the situation.
   ```
 
+* **To checkout a remote branch, you can follow these steps**
+
+  ```
+  1. First fetch all the remote branches using:
+  git fetch origin
+  
+  2. Now we can checkout to the remote branch using:
+  git checkout -b review-lbc origin/review-lbc
+  ```
+
   
