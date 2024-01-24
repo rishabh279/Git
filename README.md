@@ -219,7 +219,7 @@
   ```
 
 
-* Config for git pull
+* **Config for git pull**
 
   * `git config pull.rebase false`: This tells Git to create a new merge commit whenever you pull in changes.
   * `git config pull.rebase true`: This tells Git to rebase, which means to apply your changes on top of the changes you are pulling.
