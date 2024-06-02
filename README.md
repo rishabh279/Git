@@ -258,14 +258,21 @@
 * ##### Fork a repository
 
 
-  * https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+    * https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo
+
+
 
 * ##### Syncing a fork
 
 
-  * https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+    * https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
 
-* Fork a repository
+
+
+* ##### Choosing license for opensource repository
+
+
+  * https://choosealicense.com/
 
 * Fork a repository
 
